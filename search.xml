@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>python-opencv读取,保存和显示图片</title>
+    <url>/2023/05/06/python-opencv%E8%AF%BB%E5%8F%96-%E4%BF%9D%E5%AD%98%E5%92%8C%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<h1 id="python-opencv读取图片、显示图片和保存"><a href="#python-opencv读取图片、显示图片和保存" class="headerlink" title="python-opencv读取图片、显示图片和保存"></a>python-opencv读取图片、显示图片和保存</h1><ul>
+<li>1、读入图像 cv2.imread(‘路径’,0)<br>第二个参数是设置读取方式，0表示灰度图，1表示彩图，但是透明度会被忽略，这是默认参数1 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line">img=cv2.imread(<span class="string">&#x27;empire.jpg&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li>2、显示图像 cv2.imshow(‘窗口名称’,img) <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.imshow(<span class="string">&#x27;empire.jpg&#x27;</span>,img)</span><br><span class="line">cv2.waitKey()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+  cv2.waitKey() 是一个键盘绑定函数。需要指出的是它的时间尺度是毫秒级。函数等待特定的几毫秒，看是否有键盘输入。特定的几毫秒之内，如果按下任意键，这个函数会返回按键ASCII码值，程序将会继续运行。如果没有键盘输入，返回值为-1，如果我们设置这个函数的参数为 0，那它将会无限期的等待键盘输入。cv2.destroyAllWindows() 可以轻易删除任何我们建立的窗口。如果你想删除特定的窗口可以使用 cv2.destroyWindow()，在括号内输入你想删除的窗口名。<br>   &ensp;&ensp;&ensp;cv2.destroyAllWindows() 可以轻易删除任何我们建立的窗口。如果你想删除特定的窗口可以使用 cv2.destroyWindow()，在括号内输入你想删除的窗口名。</li>
+<li>保存图像 cv2.imwrite(‘名称.格式’,img)<ul>
+<li>示例 加载图像后按S键保存并且退出</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">   <span class="keyword">if</span> k==<span class="number">27</span>:  <span class="comment"># 27 ASC2码对应ESC按键</span></span><br><span class="line">	cv2.destroyAllWindows()</span><br><span class="line"><span class="keyword">else</span> K==<span class="built_in">ord</span>(<span class="string">&#x27;s&#x27;</span>):</span><br><span class="line">	cv2.imwrite(<span class="string">&#x27;copy_empire.jpg&#x27;</span>,img)</span><br><span class="line">	cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3 使用Matplotlin<ul>
+<li>使用matplotlib的绘画库显示图像</li>
+<li>ply.imshow()函数<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line">img = cv2.imread(<span class="string">&#x27;messi5.jpg&#x27;</span>,<span class="number">0</span>)</span><br><span class="line">plt.imshow(img, cmap = <span class="string">&#x27;gray&#x27;</span>, interpolation = <span class="string">&#x27;bicubic&#x27;</span>)</span><br><span class="line">plt.xticks([]), plt.yticks([]) <span class="comment"># to hide tick values on X and Y axis</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<strong>注意：opencv遵从BGR色彩顺序，而matplotlib遵从RGB顺序，如果使用opencv读取的图像需要进行通道分离后重新排序才能正确显示。</strong></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>python</category>
+        <category>opencv</category>
+      </categories>
+      <tags>
+        <tag>opencv</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>测试博客是否正常显示</title>
     <url>/2023/05/06/%E6%B5%8B%E8%AF%95%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
